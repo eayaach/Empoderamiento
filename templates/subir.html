@@ -1,82 +1,23 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RECICLA FÁCIL</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f0f8f5;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        header {
-            background-color: #2e8b57;
-            color: white;
-            width: 100%;
-            text-align: center;
-            padding: 1rem 0;
-            position: relative;
-        }
-        .back-button {
-            position: absolute;
-            top: 1rem;
-            left: 1rem;
-            padding: 0.5rem 1rem;
-            background-color: #3cb371;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            text-decoration: none;
-        }
-        .back-button:hover {
-            background-color: #2e8b57;
-        }
-        .image-container {
-            margin: 2rem 0;
-        }
-        .image-container img {
-            border: 5px solid #2e8b57;
-            border-radius: 10px;
-            max-width: 100%;
-            height: auto;
-        }
-        .btn-upload, .btn-next {
-            display: inline-block;
-            padding: 0.5rem 1rem;
-            color: white;
-            background-color: #2e8b57;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            text-decoration: none;
-            margin: 0 0.5rem;
-        }
-        .btn-upload:hover, .btn-next:hover {
-            background-color: #3cb371;
-        }
-        .upload-container {
-            margin: 1rem 0;
-        }
-    </style>
-</head>
-<body>
+{% extends 'layout.html' %}
+
+{% block title %}Subir imagen{% endblock %}
+
+{% block content %}
+    <head>
+        <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/subir.css') }}">
+    </head>
+
     <header>
-        <a href="index.html" class="back-button">Volver al inicio</a>
-        <h1>RECICLA FÁCIL</h1>
+        <h1>Sube tu imagen</h1>
     </header>
-    <div class="image-container">
-        <img src="ejemploenvase.png" alt="Ejemplo de botella">
+    <div class="image-container" onclick="document.getElementById('fileInput').click()">
+        <img id="placeholder" src="{{ url_for('static', filename='images/placeholder-image.png') }}" alt="Ejemplo de botella">
     </div>
     <div class="upload-container">
-        <button class="btn-upload" onclick="document.getElementById('fileInput').click()">¡Sube tu foto!</button>
-        <input type="file" id="fileInput" style="display: none;">
-        <a href="siguiente.html" class="btn-next">Siguiente página</a>
+        <a href="/" class="btn">Volver al inicio</a>
+        <input type="file" id="fileInput" style="display: none;" accept="image/*">
+        <button class="btn" id="postImageButton">Enviar Imagen</button>
     </div>
-</body>
-</html>
+    <script src="{{ url_for('static', filename='scripts/input.js') }}"></script>
+    <script src="{{ url_for('static', filename='scripts/img-post.js') }}"></script>
+{% endblock %}

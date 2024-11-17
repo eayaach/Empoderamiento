@@ -1,0 +1,36 @@
+.back-button {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: #3cb371;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+}
+.back-button:hover {
+    background-color: #2e8b57;
+}
+.image-container {
+    margin: 2rem 0;
+    transition: all 0.3s ease; 
+}
+
+.image-container:hover {
+    cursor: pointer; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    transform: scale(1.05); 
+}
+.image-container img {
+    border: 5px solid #2e8b57;
+    background-color: white;
+    border-radius: 10px;
+    width: 265px;
+    height: 265px;
+}
+.upload-container {
+    margin: 1rem 0;
+    height: 25px;
+}

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RECICLA FÁCIL</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/layout.css') }}">
+</head>
+<body>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+    <footer>
+        <p>Desarrollado por Elías Ayaach, Benjamín Cares, Tomás González, Mario Pedemonte y Cristóbal Suárez</p>
+      <p>
+        Para Empoderamiento Climático GEO624 - Pontificia Universidad Cátolica de Chile
+      </p>
+    </footer>
+</body>
+</html>

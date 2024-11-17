@@ -1,0 +1,24 @@
+
+.tipo-plastico {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.tipo-plastico img {
+    height: 50px;
+    vertical-align: middle;
+}
+
+.plastic-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px; 
+    width: 90%;
+}
+
+.plastic-grid>*:nth-child(even) {
+    background-color: #2e8b57; /* Color para elementos impares */
+}
