@@ -1,0 +1,51 @@
+{% extends 'layout.html' %}
+
+{% block title %}Subir imagen{% endblock %}
+
+{% block content %}
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/subir.css') }}">
+</head>
+
+<header>
+    <h1>Resultado del Análisis</h1>
+</header>
+
+<div class="result-container" style="display: flex; flex-direction: row; align-items: center; gap: 40px;">
+    <div class="image-container">
+        <!-- La imagen se actualizará dinámicamente usando JavaScript -->
+        <img id="placeholder" src="{{ url_for('static', filename='images/placeholder-image.png') }}" alt="Ejemplo de botella">
+    </div>
+    <div style="flex-direction: column; display: flex; padding: 10px; border-radius: 10px; background-color: rgba(255,255, 255, 0.4);">
+        {% if reciclable and tipo_plastico %}
+        <h2>Resultado:</h2>
+        <p>
+            {% if reciclable == "SI" %}
+                <span class="reciclable">El material es reciclable</span> y pertenece al tipo de plástico:
+                <h2>{{ tipo_plastico }}</h2>
+            {% else %}
+                <span class="no-reciclable">El material NO es reciclable</span>. Tipo de plástico detectado:
+                <h2>{{ tipo_plastico }}</h2>
+            {% endif %}
+        </p>
+        {% else %}
+            <p>Por favor sube una imagen para analizar.</p>
+        {% endif %}
+    </div>
+
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Recuperar la imagen de sessionStorage
+        const base64Image = sessionStorage.getItem('uploadedImage');
+        const placeholderImage = document.getElementById('placeholder');
+
+        // Si existe una imagen en sessionStorage, actualizar el src
+        if (base64Image) {
+            placeholderImage.src = base64Image;
+        }
+    });
+</script>
+{% endblock %}
+
